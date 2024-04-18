@@ -113,7 +113,7 @@
     }
     function f(e) {
       if (null === e || void 0 === e) throw new Error('degrees is required');
-      return ((e % 360) * Math.PI) / 180;
+      return (e % 360) * Math.PI / 180;
     }
     function p(e) {
       return !isNaN(e) && null !== e && !Array.isArray(e);
@@ -815,12 +815,12 @@
           var o = {
               acres: 'Acres',
               feet: 'Feet',
-              kilometers: 'Kilometers',
-              hectares: 'Hectares',
-              meters: 'Meters',
+              kilometers: 'Kilometra',
+              hectares: 'Hektarë',
+              meters: 'Metra',
               miles: 'Miles',
               sqfeet: 'Sq Feet',
-              sqmeters: 'Sq Meters',
+              sqmeters: 'Sq Metra',
               sqmiles: 'Sq Miles'
             },
             i = L.extend({ factor: 1, decimals: 0 }, t);
@@ -874,10 +874,10 @@
             ? ((t = L.circleMarker(e[0], this._symbols.getSymbol('resultPoint'))),
               (r = b({ model: n })))
             : 2 === e.length
-            ? ((t = L.polyline(e, this._symbols.getSymbol('resultLine'))),
-              (r = _({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })))
-            : ((t = L.polygon(e, this._symbols.getSymbol('resultArea'))),
-              (r = j({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })));
+              ? ((t = L.polyline(e, this._symbols.getSymbol('resultLine'))),
+                (r = _({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })))
+              : ((t = L.polygon(e, this._symbols.getSymbol('resultArea'))),
+                (r = j({ model: L.extend({}, n, this._getMeasurementDisplayStrings(n)) })));
           var o = L.DomUtil.create('div', '');
           o.innerHTML = r;
           var i = (0, c.selectOne)('.js-zoomto', o);
@@ -1743,19 +1743,17 @@
         for (u = 0; u < f; u++)
           u === f - 2
             ? ((o = f - 2), (i = f - 1), (s = 0))
-            : u === f - 1
-            ? ((o = f - 1), (i = 0), (s = 1))
-            : ((o = u), (i = u + 1), (s = u + 2)),
+            : u === f - 1 ? ((o = f - 1), (i = 0), (s = 1)) : ((o = u), (i = u + 1), (s = u + 2)),
             (t = e[o]),
             (r = e[i]),
             (n = e[s]),
             (c += (a(n[0]) - a(t[0])) * Math.sin(a(r[1])));
-        c = (c * l * l) / 2;
+        c = c * l * l / 2;
       }
       return c;
     }
     function a(e) {
-      return (e * Math.PI) / 180;
+      return e * Math.PI / 180;
     }
     Object.defineProperty(t, '__esModule', { value: !0 });
     var u = r(27),
@@ -1963,22 +1961,22 @@
   },
   function(e, t, r) {
     e.exports =
-      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Measure distances and areas">Measure</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <h3>Measure distances and areas</h3> <ul class=tasks> <a href=# class="js-start start">Create a new measurement</a> </ul> </div> <div class=js-measuringprompt> <h3>Measure distances and areas</h3> <p class=js-starthelp>Start creating a measurement by adding points to the map</p> <div class="js-results results"></div> <ul class="js-measuretasks tasks"> <li><a href=# class="js-cancel cancel">Cancel</a></li> <li><a href=# class="js-finish finish">Finish measurement</a></li> </ul> </div> </div> ';
+      '<a class="{{ model.className }}-toggle js-toggle" href=# title="Matja e distancave dhe sipërfaqeve">Measure</a> <div class="{{ model.className }}-interaction js-interaction"> <div class="js-startprompt startprompt"> <h3>Matja e distancave dhe sipërfaqeve</h3> <ul class=tasks> <a href=# class="js-start start">Krijo një matje të re</a> </ul> </div> <div class=js-measuringprompt> <h3>Matja e distancave dhe sipërfaqeve</h3> <p class=js-starthelp>Krijo një matje duke vendosur pika në hartë</p> <div class="js-results results"></div> <ul class="js-measuretasks tasks"> <li><a href=# class="js-cancel cancel">Anullo</a></li> <li><a href=# class="js-finish finish">Përfundo matjen</a></li> </ul> </div> </div> ';
   },
   function(e, t, r) {
     e.exports =
-      '<div class=group> <p class="lastpoint heading">Last point</p> <p>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> </div> <% if (model.pointCount > 1) { %> <div class=group> <p><span class=heading>Path distance</span> {{ model.lengthDisplay }}</p> </div> <% } %> <% if (model.pointCount > 2) { %> <div class=group> <p><span class=heading>Area</span> {{ model.areaDisplay }}</p> </div> <% } %> ';
+      '<div class=group> <p class="lastpoint heading">Pika e fundit</p> <p>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> </div> <% if (model.pointCount > 1) { %> <div class=group> <p><span class=heading>Distanca e rrugës</span> {{ model.lengthDisplay }}</p> </div> <% } %> <% if (model.pointCount > 2) { %> <div class=group> <p><span class=heading>Zona</span> {{ model.areaDisplay }}</p> </div> <% } %> ';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Point location</h3> <p>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Center on this location</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Delete</a></li> </ul> ';
+      '<h3>Vendndodhja e pikës</h3> <p>{{ model.lastCoord.dms.y }} <span class=coorddivider>/</span> {{ model.lastCoord.dms.x }}</p> <p>{{ numberFormat(model.lastCoord.dd.y, 6) }} <span class=coorddivider>/</span> {{ numberFormat(model.lastCoord.dd.x, 6) }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Qendra në këtë vendndodhje</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Fshije</a></li> </ul> ';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Linear measurement</h3> <p>{{ model.lengthDisplay }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Center on this line</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Delete</a></li> </ul> ';
+      '<h3>Matja lineare</h3> <p>{{ model.lengthDisplay }}</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Qendra në këtë linjë</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Fshije</a></li> </ul> ';
   },
   function(e, t, r) {
     e.exports =
-      '<h3>Area measurement</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Perimeter</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Center on this area</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Delete</a></li> </ul> ';
+      '<h3>Matja e sipërfaqes</h3> <p>{{ model.areaDisplay }}</p> <p>{{ model.lengthDisplay }} Perimetër</p> <ul class=tasks> <li><a href=# class="js-zoomto zoomto">Qendra në këtë zonë</a></li> <li><a href=# class="js-deletemarkup deletemarkup">Fshije</a></li> </ul> ';
   }
 ]);
