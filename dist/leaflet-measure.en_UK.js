@@ -820,7 +820,7 @@
               meters: 'Metra',
               miles: 'Miles',
               sqfeet: 'Sq Feet',
-              sqmeters: 'Sq Metra',
+              sqmeters: 'Metra katrorë',
               sqmiles: 'Sq Miles'
             },
             i = L.extend({ factor: 1, decimals: 0 }, t);
